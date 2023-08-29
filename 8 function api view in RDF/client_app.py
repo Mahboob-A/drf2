@@ -9,7 +9,10 @@ def get_student_data(roll = None):
         if roll is not None: 
                 data = {'roll' : roll}
         json_data = json.dumps(data)
-        resp = requests.get(url=URL, data=json_data)
+        
+        headers = {'content-Type' : 'application/json'}
+        
+        resp = requests.get(url=URL, headers=headers, data=json_data)
         data = resp.json()
         print(data)
         
@@ -46,8 +49,10 @@ def put_data():
                 'st_class' : 'XII',
         } 
         
+        headers = {'content-Type' : 'application/json'}
+        
         json_data = json.dumps(data)
-        resp = requests.put(url=URL, data=json_data)
+        resp = requests.put(url=URL,  headers=headers,  data=json_data)
         data = resp.json()
         print(resp)
         print(data)
@@ -61,8 +66,10 @@ def delete_data():
                 'roll' : 110423
         }
         
+        headers = {'content-Type' : 'application/json'}
+        
         json_data = json.dumps(data)
-        resp = requests.delete(url=URL, data=json_data)
+        resp = requests.delete(url=URL, headers=headers,  data=json_data)
         data = resp.json()
         print(resp)
         print(data)

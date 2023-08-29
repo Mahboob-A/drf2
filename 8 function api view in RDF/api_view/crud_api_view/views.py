@@ -10,6 +10,9 @@ from .serializer import PeopleSerializer
 
 @api_view(['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
 def people_api(request, id=None): 
+
+        # id = request.data.get('id', None) | if client app is used, get the id from the request.data (this is parsed_data)
+        
         if request.method == 'GET':     
                 if id is not None: 
                         try : 
