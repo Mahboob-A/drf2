@@ -1,0 +1,1 @@
+# Read The Note Here : https://www.notion.so/Video-11-Concrete-View-Class-In-DRF-05c57f5639fb4619a0a358604979d9e8?pvs=4
