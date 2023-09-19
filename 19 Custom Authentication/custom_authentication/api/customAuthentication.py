@@ -12,8 +12,8 @@ class CustomAuthentication(BaseAuthentication):
         '''
         def authenticate(self, request):
                 # we can add any authentication logic here 
-                # username = request.query_params('username')
-                username = request.GET.get('username')
+                username = request.query_params.get('username', None)
+                # username = request.GET.get('username', None)
                 if username is None:
                         
                         # returning None means authentication failed.  
