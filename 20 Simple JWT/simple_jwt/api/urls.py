@@ -4,6 +4,7 @@ from rest_framework.routers import DefaultRouter
 
 from .views import StudentModelViewSet, StudentReadOnlyModelViewSet
 
+from rest_framework.authtoken.views import obtain_auth_token
 
 # Importing the SimpleJWT views 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView 
@@ -21,6 +22,7 @@ urlpatterns = [
 
         path('', include(router.urls)),
         
+        path('gettoken/', obtain_auth_token, name='authtoken'),
         # adding the simple jwt viwes in path 
         path('get-token/', TokenObtainPairView.as_view(), name='get_token'),
         path('refresh-token/', TokenRefreshView.as_view(), name='token_refresh'),
