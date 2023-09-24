@@ -16,18 +16,11 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.authentication import SessionAuthentication 
 
 
-#  from django_filters
-#  It matches the exact keyword with the fields. matches exact values 
-from django_filters.rest_framework import DjangoFilterBackend  
-
-# This is a general searching. The selected fields will be considered to search values 
-# This will search any matching with the keyword with the search_fields fields. 
-# matches any matching values
-# it takes the search param, and returns any matching result declared based on the search_fields list. 
+from rest_framework.filters import OrderingFilter 
 from rest_framework.filters import SearchFilter
 
 '''
-23. DRF search filter   
+24. DRF ordering filer 
 
 '''
 
@@ -39,13 +32,9 @@ from rest_framework.filters import SearchFilter
 class StudentListView(viewsets.ModelViewSet): 
         queryset = Student.objects.all()
         serializer_class = StudentSerializer 
-        filter_backends = [SearchFilter, DjangoFilterBackend]
-        
-        filterset_fields = ['name', 'city'] # for django_filters DjangoFilterBackend  | http://127.0.0.1:8000/crud/studentapi/?name=Halim&city=Boyra
-        search_fields = ['name', 'city'] #  matches any matching with the qulery param|  drf's own search filter | http://127.0.0.1:8000/crud/studentapi/?search=Halim
-        
-        # search_fields = ['^name'] # matches only the first char of the field with the query param 
-        # search_fields = ['=name'] # matches the exact matching with the query param | case insecsitive 
+        filter_backends = [SearchFilter, OrderingFilter]
+        search_fields = ['name', ]
+        ordering_fields = ['name', 'city']  # see settngs.py for changed param 
 
 
 
