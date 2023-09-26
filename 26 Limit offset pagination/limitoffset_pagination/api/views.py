@@ -49,18 +49,17 @@ class StudentListView(viewsets.ModelViewSet):
 class StudentPagination(APIView):
         def get(self, request, format=None): 
                 students = Student.objects.all()
-                page = request.query_params.get('p', None)
-                size = request.query_params.get('size', None)
+                limit = request.query_params.get('limit', None)
                 
-                if page and size: 
-                        paginator = DemoPagination()
-                        paginator.page_size = size 
-                else: 
-                        paginator = DemoPagination()
+                # 
+                # if limit: 
+                #         paginator = DemoPagination()
+                #         paginator.default_limit = limit 
+                # else: 
+                #         paginator = DemoPagination()
                 
-                print('page: ', page)
-                print('size: ', size)
-                        
+                print('limit: ', limit)
+                paginator = DemoPagination()
                 paginated_page = paginator.paginate_queryset(students, request, view=self)
                 serializer = StudentSerializer(paginated_page, many=True)
                 return paginator.get_paginated_response(serializer.data)
