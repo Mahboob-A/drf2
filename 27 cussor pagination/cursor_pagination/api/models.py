@@ -12,7 +12,7 @@ class Student(models.Model):
                 return self.name
         
  
- # creating this table to see the how the relations in db forms  
+ # creating this table to see the how the relations in db forms  | 280923, Thursday 
         
 class Course(models.Model): 
         student = models.ManyToManyField(Student, blank=True,  related_name='course')
