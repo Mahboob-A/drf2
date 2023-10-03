@@ -1,0 +1,50 @@
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+
+# Ignore log files
+*.log
+
+# Ignore environment-specific settings files
+*.env
+
+# Ignore secret keys and sensitive information (should be stored securely elsewhere)
+*.secret_key
+
+# Ignore IDE and editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.bak
+*.pyproj
+*.dbproj
+*.user
+*.suo
+*.cache
+*.pyc
+*.log
+*.log.*
+*.seed
+*.db-shm
+*.db-wal
+*.bkp
+*.png
+*.jpg
+*.jpeg
+
+# Ignore user-specific settings
+*.history
+
+# Ignore virtual environment folders
+venv/
+env/
+
+# Ignore local configuration
+local_settings.py
+
+
+# Ignore pycache folders
+__pycache__/
