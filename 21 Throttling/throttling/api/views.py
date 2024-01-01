@@ -26,6 +26,9 @@ from .throttling import CustomUserRateThrottle
 
 
 
+
+
+
 '''
 21. Throttling 
 
@@ -41,6 +44,8 @@ class StudentModelViewSet(viewsets.ModelViewSet):
         # throttling 
         throttle_classes = [AnonRateThrottle, CustomUserRateThrottle]
         
+
+
 
 
 '''
@@ -64,6 +69,9 @@ http DELETE http://127.0.0.1:800/crud/studentapi/1/ 'Authorization:Token token_h
 
 '''
 
+
+
+
         
 '''
 ReadOnlyModelViewSet only provides List and Retrieve (only provides GET method.)
@@ -72,6 +80,8 @@ ReadOnlyModelViewSet also inherits GenericAPIView
 class StudentReadOnlyModelViewSet(viewsets.ReadOnlyModelViewSet): 
         queryset = Student.objects.all()
         serializer_class = StudentSerializer 
+        
+        
         
         
 
